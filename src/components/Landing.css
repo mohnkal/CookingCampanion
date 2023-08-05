@@ -1,0 +1,344 @@
+@import url("https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Crimson+Text&family=Inter:wght@200;500;700&family=Leckerli+One&family=Oswald:wght@300&family=Roboto:wght@300&family=Source+Code+Pro:wght@300&family=Teko:wght@300&display=swap");
+/* .cooking {
+  margin-top: 20%;
+  padding-left: 10%;
+} */
+.ccompanion {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: inherit;
+  padding: 0px;
+  color: #fff;
+  text-shadow: 0px 3.4665448665618896px 3.4665448665618896px 0px
+    rgba(0, 0, 0, 0.25);
+  font-family: Leckerli One;
+  font-size: 85px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: left;
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  background-image: url(./topart.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 745px;
+  text-align: left;
+  margin-bottom: 0px;
+}
+.landing-container img{
+  filter: brightness(50%);
+}
+
+.cooking p {
+  margin-top: 12rem;
+  margin-left: 10rem;
+  margin-bottom: 0;
+}
+
+.uploadbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 284px;
+  height: 104px;
+  flex-shrink: 0;
+  margin-left: 10rem;
+  margin-top: 3rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 1.60097336769104px 3.20194673538208px 8.004866600036621px
+    3.20194673538208px rgba(0, 0, 0, 0.25);
+}
+
+.ingredientd {
+  color: #000;
+  font-family: Abhaya Libre ExtraBold;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin-bottom: 7px;
+}
+.uploadbtn {
+  color: #fff;
+  font-family: Abhaya Libre ExtraBold;
+  font-size: 26.554px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  width: 219.333px;
+  height: 43.212px;
+  flex-shrink: 0;
+  border-radius: 7.857px;
+  background: #fc544c;
+  box-shadow: 0px 2.618905544281006px 3.9283580780029297px 0.6547263860702515px
+    rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.fybox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-shrink: 0;
+  background-color: #f8a02c;
+  filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.25));
+}
+.fy {
+  padding: 10px 0;
+  color: #fff;
+  text-align: center;
+  font-family: Crimson Text;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.dishbox {
+  width: 100%;
+  background: #f8f8f8;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.interbox {
+  width: 100%;
+  flex-shrink: 0;
+  background: #b15532;
+}
+.inter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  color: #fff;
+  text-align: center;
+  font-family: Crimson Text;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.cuisine {
+  width: 100%;
+  height: 390px;
+  flex-shrink: 0;
+  background: #fffbfb;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);
+}
+.srecipe {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  flex-shrink: 0;
+  background-color: #ffb047;
+  filter: drop-shadow(
+    0px 3.6458332538604736px 7.291666507720947px rgba(0, 0, 0, 0.25)
+  );
+}
+.man img{
+  width: 100%;
+  box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.love {
+  margin-left: 50px;
+  text-align: left;
+  color: #000;
+  font-family: Crimson Text;
+  font-size: 49px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.share {
+  width: 256px;
+  height: 61.243px;
+  border-radius: 14px;
+  background: #462b20;
+  color: #fff;
+  font-family: Crimson Text;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.what {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-shrink: 0;
+  background-color: #788285;
+  filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.25));
+}
+.wp {
+  padding: 10px 0;
+  color: #fff;
+  text-align: center;
+  font-family: Crimson Text;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.whatbox {
+  width: 100%;
+  height: 736px;
+  flex-shrink: 0;
+  background: #eeeef1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 1280px) {
+  .ccompanion {
+    font-size: 65px;
+    font-weight: 300;
+  }
+  
+  .fy{
+    font-size: 40px;
+    padding: 8px 0;
+  }
+  .inter{
+    font-size: 40px;
+    padding: 8px 0;
+  }
+  .man img{
+    width: 350px;
+  }
+  .love{
+    margin-left: 40px;
+  font-size: 33px;
+  }
+  .wp{
+    font-size: 40px;
+    padding: 8px 0;
+  }
+}
+
+ @media (max-width: 768px) {
+  .cooking p{
+    margin-left: 6rem;
+  }
+  .ccompanion {
+    font-size: 50px;
+    font-weight: 200;
+  }
+  .fy{
+    font-size: 40px;
+    padding: 8px 0;
+  }
+  .uploadbox{
+    width: 250px;
+  height: 90px;
+  margin-left: 6rem;
+  }
+  .ingredientd {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .uploadbtn {
+    font-size: 20px;
+    font-weight: 600;
+    width: 180px;
+    height: 36px;
+  }
+  .inter{
+    font-size: 40px;
+    padding: 8px 0;
+  }
+  .man img{
+    width: 250px;
+  }
+  .love{
+    margin-left: 30px;
+  font-size: 25px;
+  }
+  .share {
+    width: 186px;
+    height: 51px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .wp{
+    font-size: 40px;
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .cooking p{
+    margin-left: 3rem;
+    -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+    text-shadow: 2px 2px #000000;
+  }
+  .ccompanion {
+    font-size: 45px;
+    font-weight: 150;
+  }
+  .fy{
+    font-size: 25px;
+    padding: 8px 0;
+    text-shadow: 1px 1px #000000;
+
+  }
+  .uploadbox{
+    width: 170px;
+  height: 70px;
+  margin-left: 3rem;
+  }
+  .ingredientd {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .uploadbtn {
+    font-size: 14px;
+    font-weight: 500;
+    width: 135px;
+    height: 28px;
+  }
+  .inter{
+    font-size: 25px;
+    padding: 8px 0;
+    text-shadow: 1px 1px #000000;
+  }
+  .man img{
+    width: 180px;
+  }
+  .love{
+    margin-left: 10px;
+  font-size: 15px;
+  }
+  .share {
+    margin-top: 10px;
+    width: 112px;
+    height: 25px;
+    font-size: 11px;
+    font-weight: 500;
+}
+  .wp{
+    font-size: 25px;
+    padding: 8px 0;
+    text-shadow: 1px 1px #000000;
+
+  }
+}

@@ -1,0 +1,130 @@
+.recipelistcontainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 30px;
+  justify-content: space-evenly;
+}
+.recipecontainer {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 300px;
+  box-shadow: 0 3px 10px 0;
+}
+.CoverImage {
+  height: 200px;
+}
+.RecipeName {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  margin: 10px 0;
+}
+.IngredientsText {
+  font-size: 18px;
+  border: solid 1px green;
+  color: black;
+  margin-bottom: 12px;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 4px;
+  color: green;
+  text-align: center;
+}
+.SeeMoreText {
+  font-size: 18px;
+  border: solid 1px #eb3300;
+  color: black;
+  margin: 10px 0;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 4px;
+  color: #eb3300;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 1280px) {
+  .recipelistcontainer {
+    padding: 27px;
+  }
+  .recipecontainer {
+    padding: 8px;
+    width: 270px;
+  }
+  .CoverImage {
+    height: 180px;
+  }
+  .RecipeName {
+    font-size: 16px;
+    margin: 8px 0;
+  }
+  .IngredientsText {
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 8px 13px;
+  }
+  .SeeMoreText {
+    font-size: 16px;
+    margin: 8px 0;
+    padding: 8px 13px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .recipelistcontainer {
+    padding: 24px;
+  }
+  .recipecontainer {
+    padding: 7px;
+    width: 240px;
+  }
+  .CoverImage {
+    height: 160px;
+  }
+  .RecipeName {
+    font-size: 14px;
+    margin: 7px 0;
+  }
+  .IngredientsText {
+    font-size: 14px;
+    margin-bottom: 9px;
+    padding: 7px 12px;
+  }
+  .SeeMoreText {
+    font-size: 16px;
+    margin: 8px 0;
+    padding: 8px 13px;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 517px) {
+  .recipelistcontainer {
+    padding: 19px;
+  }
+  .recipecontainer {
+    padding: 5px;
+    width: 210px;
+  }
+  .CoverImage {
+    height: 120px;
+  }
+  .RecipeName {
+    font-size: 13px;
+    margin: 5px 0;
+  }
+  .IngredientsText {
+    font-size: 13px;
+    margin-bottom: 7px;
+    padding: 5px 10px;
+  }
+  .SeeMoreText {
+    font-size: 13px;
+    margin: 7px 0;
+    padding: 5px 10px;
+    margin-bottom: 7px;
+  }
+}
