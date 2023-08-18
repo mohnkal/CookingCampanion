@@ -1,22 +1,40 @@
-import React, { useRef,useState } from "react";
-import Axios  from "axios";
+import React, { useRef, useState } from "react";
+import Axios from "axios";
+import { useRecipeContext } from "../RecipeContext"; // Adjust the path
 import logo from "./logo.png";
 import "./Navbar.css";
 import { AiOutlineHeart, AiOutlineUser } from 'react-icons/ai';
 import { SlBasket } from 'react-icons/sl';
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons";
-// import {Button} from 'react-bootstrap';
 
 export default function Navbar() {
+  const { setRecipeList } = useRecipeContext();
   const navref = useRef();
+
   const showNavbar = () => {
-    navref.current.classList.toggle("responsive_nav")
-  }
-  const [timeoutId,updateTimeoutId] = useState();
-  const onTextChange =(event)=>{
-    clearTimeout(timeoutId)
-    const timeout = setTimeout(()=> console.log("API call"),500);
+    navref.current.classList.toggle("responsive_nav");
+  };
+
+  const [timeoutId, updateTimeoutId] = useState();
+  const APP_ID = "b3d83013";
+  const APP_KEY = "99c125c3cda80cff95d788ab0a71c936";
+
+  const fetchRecipe = async (inputSearch) => {
+    try {
+      const response = await Axios.get(
+        `https://api.edamam.com/search?q=${inputSearch}&app_id=${APP_ID}&app_key=${APP_KEY}`
+      );
+      console.log(response);
+      setRecipeList(response.data.hits);
+    } catch (error) {
+      console.error("Error fetching recipes:", error);
+    }
+  };
+
+  const onTextChange = (event) => {
+    clearTimeout(timeoutId);
+    const timeout = setTimeout(() => fetchRecipe(event.target.value), 500);
     updateTimeoutId(timeout);
   };
   return (
@@ -35,9 +53,15 @@ export default function Navbar() {
               />
               <button className="searchButton">Search</button>
             </div>
-            <div><SlBasket /></div>
-            <div><AiOutlineHeart /></div>
-            <div><AiOutlineUser /></div>
+            <div>
+              <SlBasket />
+            </div>
+            <div>
+              <AiOutlineHeart />
+            </div>
+            <div>
+              <AiOutlineUser />
+            </div>
           </div>
           <div className="lower-options" ref={navref}>
             <div>International</div>
@@ -46,7 +70,7 @@ export default function Navbar() {
             <div>Ingredients</div>
             <button className="nav-btn nav-close-btn" onClick={showNavbar}>
               {/* <IconContext.Provider value={{ className:'reactHamIcon' }}> */}
-                <FaTimes />
+              <FaTimes />
               {/* </IconContext.Provider> */}
             </button>
           </div>
