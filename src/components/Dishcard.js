@@ -1,16 +1,26 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Dishcard.css";
+import CompleteRecipeModal from "./CompleteRecipeModal";
 
 export default function Dishcard({ recipe }) {
-  const { label, ingredientLines } = recipe || {
+  const { label, ingredientLines, image, shareAs } = recipe || {
     label: "No Recipe",
     ingredientLines: [],
+    image:"",
+    shareAs:"",
   };
+
+  const [showCompleteRecipe, setShowCompleteRecipe] = useState(false)
+
+  const toggleCompleteRecipe = () => {
+    setShowCompleteRecipe(!showCompleteRecipe);
+  }
+
   return (
     <div className="recipelistcontainer">
       <div className="recipecontainer">
         <img
-          src="https://img.freepik.com/premium-photo/lahmacun-is-popular-turkish-dish-thin-crispy-tortilla-with-minced-lamb-tomatoes-bell-pepper-black-table_207126-4997.jpg?w=360"
+          src={image}
           alt=""
           className="CoverImage"
         />
@@ -24,7 +34,16 @@ export default function Dishcard({ recipe }) {
           ))}
         </ul>
 
-        <span className="SeeMoreText">See Complete Recipe</span>
+        {/* <span className="SeeMoreText">See Complete Recipe</span> */}
+        <button className="SeeMoreText" onClick={toggleCompleteRecipe}>
+          See Complete Recipe
+        </button>
+        {showCompleteRecipe && (
+          <CompleteRecipeModal
+            recipe={{label,ingredientLines, shareAs}}
+            onClose={(toggleCompleteRecipe)}/>
+        )}
+
       </div>
     </div>
   );
