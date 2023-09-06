@@ -13,23 +13,25 @@ export default function Landing() {
   useEffect(() => {
     document.title = "name - pagename";
   }, []);
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 5,
-      slidesToSlide: 1,
+      slidesToSlide: 1 // optional, default to 1.
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 4,
-      slidesToSlide: 1,
+      slidesToSlide: 1 // optional, default to 1.
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 3,
-      slidesToSlide: 1,
-    },
+      slidesToSlide: 1 // optional, default to 1.
+    }
   };
+  
   return (
     <>
       <div className="landing-container">
@@ -67,38 +69,42 @@ export default function Landing() {
       <div className="interbox">
         <div className="inter">International</div>
       </div>
-      <div className="cuisine">
-        <Carousel responsive={responsive} ssr={true} infinite={true}>
-          <div className="cuisines">
-            <span className="indian">Indian</span>
-          </div>
-          <div className="cuisines">
-            <span className="german">German</span>
-          </div>
-          <div className="cuisines">
-            <span className="italian">Italian</span>
-          </div>
-          <div className="cuisines">
-            <span className="mexican">Mexican</span>
-          </div>
-          <div className="cuisines">
-            <span className="russian">Russian</span>
-          </div>
-          <div className="cuisines">
-            <span className="spanish">Spanish</span>
-          </div>
-          <div className="cuisines">
-            <span className="japanese">Japanese</span>
-          </div>
-          <div className="cuisines">
-            <span className="thai">Thai</span>
-          </div>
-          <div className="cuisines">
-            <span className="greek">Greek</span>
-          </div>
-        </Carousel>
-      </div>
-
+      {/* <div className="cuisine">
+      </div> */}
+      <Carousel
+        className="cuisine"
+        responsive={responsive}
+        ssr={true}
+        infinite={true}
+      >
+        <div className="cuisines">
+          <span className="greek">Greek</span>
+        </div>
+        <div className="cuisines">
+          <span className="thai">Thai</span>
+        </div>
+        <div className="cuisines">
+          <span className="japanese">Japanese</span>
+        </div>
+        <div className="cuisines">
+          <span className="spanish">Spanish</span>
+        </div>
+        <div className="cuisines">
+          <span className="russian">Russian</span>
+        </div>
+        <div className="cuisines">
+          <span className="mexican">Mexican</span>
+        </div>
+        <div className="cuisines">
+          <span className="italian">Italian</span>
+        </div>
+        <div className="cuisines">
+          <span className="german">German</span>
+        </div>
+        <div className="cuisines">
+          <span className="indian">Indian</span>
+        </div>
+      </Carousel>
       <div className="srecipe">
         <div className="man">
           <img src={cookingman} alt="cookingman" />
