@@ -5,6 +5,8 @@ import "./Landing.css";
 import cookingman from "./cookingman.png";
 import Dishcard from "./Dishcard";
 import { useRecipeContext } from "../RecipeContext";
+// import ReviewCard from "./ReviewCard";
+
 
 export default function Landing() {
   // importing from the context api RecipeContext.js
@@ -120,7 +122,9 @@ export default function Landing() {
       <div className="what">
         <div className="wp">What People has to say</div>
       </div>
-      <div className="whatbox"></div>
+      <div className="whatbox">
+        {/* <ReviewCard/> */}
+      </div>
     </>
   );
 }

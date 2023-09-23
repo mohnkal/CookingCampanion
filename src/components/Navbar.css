@@ -83,6 +83,13 @@ input {
 input:hover {
   background: rgba(255, 255, 255, 1);
 }
+.log{
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
 .nav-btn {
   padding: 0px;
   height: 0;

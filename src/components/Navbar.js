@@ -7,6 +7,8 @@ import { AiOutlineHeart, AiOutlineUser } from 'react-icons/ai';
 import { SlBasket } from 'react-icons/sl';
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons";
+import { UserButton } from "@clerk/clerk-react";
+
 
 export default function Navbar() {
   const { setRecipeList } = useRecipeContext();
@@ -37,6 +39,9 @@ export default function Navbar() {
     const timeout = setTimeout(() => fetchRecipe(event.target.value), 500);
     updateTimeoutId(timeout);
   };
+  const handlelogin =() =>{
+    console.log()
+  }
   return (
     <>
       <div className="navbar">
@@ -53,15 +58,15 @@ export default function Navbar() {
               />
               <button className="searchButton">Search</button>
             </div>
-            <div>
+            <a href="https://www.amazon.com/fmc/storefront?almBrandId=QW1hem9uIEZyZXNo" target="_blank" className="log">
               <SlBasket />
-            </div>
-            <div>
+            </a>
+            <button className="log">
               <AiOutlineHeart />
-            </div>
-            <div>
-              <AiOutlineUser />
-            </div>
+            </button>
+            <button className="log" onClick={handlelogin}>
+              <UserButton />
+            </button>
           </div>
           <div className="lower-options" ref={navref}>
             <div>International</div>

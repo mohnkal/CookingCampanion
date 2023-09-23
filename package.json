@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@clerk/clerk-react": "^4.25.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.1",
@@ -15,6 +16,7 @@
     "react-icons": "^4.10.1",
     "react-multi-carousel": "^2.8.4",
     "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "styled-components": "^6.0.5",
     "web-vitals": "^2.1.4"
