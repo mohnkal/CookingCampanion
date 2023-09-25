@@ -29,8 +29,7 @@ function App() {
             <SignedIn>
               <Routes>
                 <Route path="/" element={<Landing />} />
-                {/* <Route path="/" element={<SharingPage />} /> */}
-                
+                <Route path="/sharing" element={<SharingPage />} />
               </Routes>
               <Footer />
             </SignedIn>

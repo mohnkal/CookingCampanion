@@ -5,12 +5,21 @@ import "./Landing.css";
 import cookingman from "./cookingman.png";
 import Dishcard from "./Dishcard";
 import { useRecipeContext } from "../RecipeContext";
-// import ReviewCard from "./ReviewCard";
+import ReviewCard from "./ReviewCard";
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function Landing() {
   // importing from the context api RecipeContext.js
   const { recipeList } = useRecipeContext();
+  const navigate = useNavigate();
+
+
+  const redirectToSharingPage = () => {
+    navigate('/sharing');
+  };
+  
 
   useEffect(() => {
     document.title = "name - pagename";
@@ -115,7 +124,7 @@ export default function Landing() {
           Love Cooking and want to <br />
           share your recipe with <br />
           others ?<br />
-          <button className="share">Start Sharing Recipe</button>
+          <button className="share" onClick={redirectToSharingPage}>Start Sharing Recipe</button>
         </div>
       </div>
 
@@ -123,7 +132,7 @@ export default function Landing() {
         <div className="wp">What People has to say</div>
       </div>
       <div className="whatbox">
-        {/* <ReviewCard/> */}
+        <ReviewCard/>
       </div>
     </>
   );

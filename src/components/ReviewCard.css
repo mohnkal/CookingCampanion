@@ -1,2 +1,116 @@
-
+/* Styling for the UserReviews component */
+.user-reviews {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .user-reviews h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .review-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .review-card {
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 320px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .user-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .review-date {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .user-rating {
+    font-weight: bold;
+    color: #f39c12; /* Custom color for rating */
+    font-size: 18px;
+  }
+  
+  .review-image {
+    text-align: center; /* Center the image horizontally */
+  }
+  
+  .review-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .review-comment {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #555;
+  }
+  
+  /* Add a subtle border to separate the comment from the rest of the card */
+  .review-comment::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin: 15px 0;
+  }
+  
+  /* Adjust the spacing and alignment of the review card elements */
+  .review-card p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Media query for tablet-sized screens */
+  @media screen and (max-width: 768px) {
+    .review-cards {
+      flex-direction: column; /* Stack cards vertically on smaller screens */
+    }
+  
+    .review-card {
+      width: 100%; /* Make cards full width on smaller screens */
+    }
+  }
+  
+  /* Media query for mobile-sized screens */
+  @media screen and (max-width: 480px) {
+    .review-card {
+      padding: 15px; /* Reduce padding on mobile-sized screens */
+    }
+  
+    .review-image img {
+      max-height: 150px; /* Adjust image size for mobile screens */
+    }
+  }
+  
   
