@@ -1,26 +1,38 @@
 import React, { useState } from 'react';
 import './SharingPage.css'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+
+
 const SharingPage = () => {
   const [recipeTitle, setRecipeTitle] = useState('');
   const [ingredients, setIngredients] = useState('');
   const [instructions, setInstructions] = useState('');
   const [imageURL, setImageURL] = useState('');
 
-  const handleShareRecipe = () => {
-    // Handle the logic to submit the recipe data, e.g., send it to a server
-    // You can implement this logic as needed
-    console.log('Recipe Shared:', {
-      recipeTitle,
-      ingredients,
-      instructions,
-      imageURL,
-    });
+  const navigate = useNavigate();
 
-    // Clear form fields after sharing
-    setRecipeTitle('');
-    setIngredients('');
-    setInstructions('');
-    setImageURL('');
+  const handleShareRecipe = async () => {
+      try {
+        const response = await axios.post('http://localhost:5000/api/recipes', {
+          recipeTitle,
+          ingredients,
+          instructions,
+          imageURL,
+        });
+        
+        console.log('Recipe Shared Successfully- ',response.data);
+
+        setRecipeTitle('');
+        setIngredients('');
+        setInstructions('');
+        setImageURL('');
+
+        navigate('/');
+      } catch (error) {
+          console.error('Error sharing recipe ', error);
+      }
   };
 
   return (

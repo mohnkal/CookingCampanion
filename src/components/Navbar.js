@@ -37,16 +37,20 @@ export default function Navbar() {
   const onTextChange = (event) => {
     clearTimeout(timeoutId);
     const timeout = setTimeout(() => fetchRecipe(event.target.value), 500);
+    console.log(timeout);
     updateTimeoutId(timeout);
   };
   const handlelogin =() =>{
     console.log()
   }
+  const onLogoClicked = (event) =>{
+    <a href="/"></a>
+  }
   return (
     <>
       <div className="navbar">
         <div className="logo-image">
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" onClick={onLogoClicked} />
         </div>
         <div className="options-divider">
           <div className="upper-options">
@@ -61,15 +65,12 @@ export default function Navbar() {
             <a href="https://www.amazon.com/fmc/storefront?almBrandId=QW1hem9uIEZyZXNo" target="_blank" className="log">
               <SlBasket />
             </a>
-            <button className="log">
-              <AiOutlineHeart />
-            </button>
             <button className="log" onClick={handlelogin}>
               <UserButton />
             </button>
           </div>
           <div className="lower-options" ref={navref}>
-            <div>International</div>
+            <div className="myrec">My Recipes</div>
             <div>Meals</div>
             <div>Quickbites</div>
             <div>Ingredients</div>
