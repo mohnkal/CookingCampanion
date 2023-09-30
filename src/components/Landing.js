@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -12,9 +12,12 @@ import CompleteRecipeModal from "./CompleteRecipeModal";
 
 
 
+
 export default function Landing() {
   const { recipeList } = useRecipeContext();
   const navigate = useNavigate();
+
+  const fileInputRef = useRef(null); // Create a ref for the file input element
 
   const [cuisineRecipes, setCuisineRecipes] = useState([]);
   const [showIngredients, setShowIngredients] = useState(null);
@@ -27,16 +30,16 @@ export default function Landing() {
   const toggleCompleteRecipe = (index) => {
     setShowCompleteRecipe(showCompleteRecipe === index ? null : index);
   };
-  
+
   const toggleIngredients = (index) => {
     setShowIngredients(showIngredients === index ? null : index);
   }
 
   const onClose = () => {
-    setShowIngredients(false); 
+    setShowIngredients(false);
     setShowCompleteRecipe(false);
   };
-  
+
 
   useEffect(() => {
     document.title = "name - pagename";
@@ -74,28 +77,7 @@ export default function Landing() {
     }
   };
 
-  // const handleFileUpload = async (event) => {
-  //   const file = event.target.files[0];
-  //   console.log(file);
-
-  //   if (file) {
-  //     const formData = new FormData();
-  //     formData.append("file", file);
-
-  //     // Send a POST request to your server endpoint
-  //   fetch('https://food-api-4uyzwngf6q-uc.a.run.app/', {
-  //     method: 'POST',
-  //     body: formData,
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log('File uploaded successfully:', data);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error uploading file:', error);
-  //     });
-  // }};
-  
+  // Here are detection saved
   const [response, setResponse] = useState(null);
 
 
@@ -119,12 +101,41 @@ export default function Landing() {
       // Save the response in the 'response' state variable
       setResponse(responseData);
 
+      // Search element
+      const inputElement = document.getElementById('navbar-search-id');
+
+      if (inputElement) {
+        // Create a change event
+        let event = new Event('change', { bubbles: true });
+
+        // Old value of search
+        let lastValue = inputElement.value;
+
+        // Change the value of the search field
+        inputElement.value = responseData.unique_food_detected; // Replace 'someValue' with the actual value you want to set
+
+        // Trigger the 'change' event on the element
+        event.simulated = true;
+
+        // Initialize value tracker for element
+        let tracker = inputElement._valueTracker;
+        if (tracker) {
+          tracker.setValue(lastValue);
+        }
+
+        // Trigger the 'change' event on the element
+        inputElement.dispatchEvent(event);
+
+      }
+
       console.log(responseData);
+
+
     } catch (error) {
       console.error('Error submitting the form:', error);
     }
   };
-   
+
 
   return (
     <>
@@ -139,7 +150,16 @@ export default function Landing() {
           <div className="ingredientd">Ingredient Detection</div>
           <form onSubmit={handleSubmit} method="POST" enctype="multipart/form-data" >
             <input type="file" className="uploadbtn" accept="image/*" id="image" name="image" />
-            <input type="submit" value="Submit Value" className="submit"/>
+            
+            {/* <!-- Button to trigger file selection --> */}
+            {/* <button id="file-upload-btn">Choose File</button> */}
+
+            {/* <!-- Hidden file input --> */}
+            {/* <input type="file" id="file-input" accept=".jpg, .jpeg, .png, .gif, .pdf" /> */}
+
+            {/* <!-- Display selected file name (optional) --> */}
+            {/* <p id="file-name"></p> */}
+            <input type="submit" value="Submit Value" className="submit" />
           </form>
         </div>
       </div>
@@ -164,50 +184,50 @@ export default function Landing() {
       </div>
 
       <div className="cuisine">
-      <Carousel
-        className="cuisine"
-        responsive={responsive}
-        ssr={true}
-        infinite={true}
-      >
-        {cuisineRecipes.map((recipe, index) => (
-          <div key={index} className="recipelistcontainer">
-            <div className="recipecontainer">
-              <img src={recipe.imageURL} alt={recipe.recipeTitle} className="CoverImage" />
-              <span className="RecipeName">
-                <h2>{recipe.recipeTitle}</h2>
-              </span>
-              <button className="IngredientsText" onClick={() => toggleIngredients(index)}>
-                Ingredients
-              </button>
-              {showIngredients === index && (
-                <CompleteRecipeModal
-                recipe={{
-                  label: recipe.recipeTitle,
-                  ingredients: recipe.ingredients
-                }}
-                showCompleteRecipeLink={false}
-                showIngredients={true}
-                onClose={onClose}  // Make sure this line is included
-              />
-              )}
-              <button className="SeeMoreText" onClick={() => toggleCompleteRecipe(index)}>
-                Instructions
-              </button>
-              {showCompleteRecipe === index && (
-                <CompleteRecipeModal
-                recipe={{
-                  label: recipe.recipeTitle,
-                  ingredients: recipe.ingredients
-                }}
-                showCompleteRecipeLink={false}
-                showIngredients={true}
-                onClose={onClose}  // Make sure this line is included
-              />
-              )}
+        <Carousel
+          className="cuisine"
+          responsive={responsive}
+          ssr={true}
+          infinite={true}
+        >
+          {cuisineRecipes.map((recipe, index) => (
+            <div key={index} className="recipelistcontainer">
+              <div className="recipecontainer">
+                <img src={recipe.imageURL} alt={recipe.recipeTitle} className="CoverImage" />
+                <span className="RecipeName">
+                  <h2>{recipe.recipeTitle}</h2>
+                </span>
+                <button className="IngredientsText" onClick={() => toggleIngredients(index)}>
+                  Ingredients
+                </button>
+                {showIngredients === index && (
+                  <CompleteRecipeModal
+                    recipe={{
+                      label: recipe.recipeTitle,
+                      ingredients: recipe.ingredients
+                    }}
+                    showCompleteRecipeLink={false}
+                    showIngredients={true}
+                    onClose={onClose}  // Make sure this line is included
+                  />
+                )}
+                <button className="SeeMoreText" onClick={() => toggleCompleteRecipe(index)}>
+                  Instructions
+                </button>
+                {showCompleteRecipe === index && (
+                  <CompleteRecipeModal
+                    recipe={{
+                      label: recipe.recipeTitle,
+                      ingredients: recipe.ingredients
+                    }}
+                    showCompleteRecipeLink={false}
+                    showIngredients={true}
+                    onClose={onClose}  // Make sure this line is included
+                  />
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
         </Carousel>
       </div>
 

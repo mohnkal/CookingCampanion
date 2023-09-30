@@ -12,6 +12,7 @@ import { UserButton } from "@clerk/clerk-react";
 
 export default function Navbar() {
   const { setRecipeList } = useRecipeContext();
+
   const navref = useRef();
 
   const showNavbar = () => {
@@ -24,6 +25,7 @@ export default function Navbar() {
 
   const fetchRecipe = async (inputSearch) => {
     try {
+      console.log(inputSearch);
       const response = await Axios.get(
         `https://api.edamam.com/search?q=${inputSearch}&app_id=${APP_ID}&app_key=${APP_KEY}`
       );
@@ -37,9 +39,9 @@ export default function Navbar() {
   const onTextChange = (event) => {
     clearTimeout(timeoutId);
     const timeout = setTimeout(() => fetchRecipe(event.target.value), 500);
-    console.log(timeout);
     updateTimeoutId(timeout);
   };
+ 
   const handlelogin =() =>{
     console.log()
   }
@@ -59,11 +61,15 @@ export default function Navbar() {
                 type="text"
                 placeholder="Search for a recipe"
                 onChange={onTextChange}
+                id="navbar-search-id"
               />
-              <button className="searchButton">Search</button>
+              <button className="searchButton" >Search</button>
             </div>
             <a href="https://www.amazon.com/fmc/storefront?almBrandId=QW1hem9uIEZyZXNo" target="_blank" className="log">
               <SlBasket />
+            </a>
+            <a target="_blank" className="log">
+              <AiOutlineHeart />
             </a>
             <button className="log" onClick={handlelogin}>
               <UserButton />
@@ -71,9 +77,9 @@ export default function Navbar() {
           </div>
           <div className="lower-options" ref={navref}>
             <div className="myrec">My Recipes</div>
-            <div>Meals</div>
-            <div>Quickbites</div>
-            <div>Ingredients</div>
+            <div className="meals">Meals</div>
+            <div className="quickbits">Quickbites</div>
+            <div className="ingredients">Ingredients</div>
             <button className="nav-btn nav-close-btn" onClick={showNavbar}>
               {/* <IconContext.Provider value={{ className:'reactHamIcon' }}> */}
               <FaTimes />

@@ -19,6 +19,10 @@ if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
 
 const clerkPubKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
 
+
+
+//const [searchValue, setSearchValue] = useState(""); // State to store search bar value
+
 function App() {
   return (
     <BrowserRouter>

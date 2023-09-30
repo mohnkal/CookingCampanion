@@ -8,7 +8,22 @@
     <meta
       name="description"
       content="Web site created using create-react-app"
+      
     />
+    <style>
+    
+    #file-upload-btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    #file-input {
+      display: none;
+    }
+  </style>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -34,6 +49,25 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <!-- <script>
+      // JavaScript to handle file selection and display the selected file name
+      const fileInput = document.getElementById("file-input");
+      const fileNameDisplay = document.getElementById("file-name");
+  
+      fileInput.addEventListener("change", (e) => {
+        const selectedFile = e.target.files[0];
+        if (selectedFile) {
+          fileNameDisplay.textContent = `Selected File: ${selectedFile.name}`;
+        } else {
+          fileNameDisplay.textContent = "";
+        }
+      });
+  
+      const fileUploadBtn = document.getElementById("file-upload-btn");
+      fileUploadBtn.addEventListener("click", () => {
+        fileInput.click(); // Trigger the hidden file input when the button is clicked
+      });
+    </script> -->
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
