@@ -1,38 +1,37 @@
-import React, { useState } from 'react';
-import './SharingPage.css'
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-
-
+import React, { useState } from "react";
+import "./SharingPage.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SharingPage = () => {
-  const [recipeTitle, setRecipeTitle] = useState('');
-  const [ingredients, setIngredients] = useState('');
-  const [instructions, setInstructions] = useState('');
-  const [imageURL, setImageURL] = useState('');
+  const [recipeTitle, setRecipeTitle] = useState("");
+  const [ingredients, setIngredients] = useState("");
+  const [instructions, setInstructions] = useState("");
+  const [imageURL, setImageURL] = useState("");
 
   const navigate = useNavigate();
 
   const handleShareRecipe = async () => {
-      try {
-        const response = await axios.post('http://localhost:5000/api/recipes', {
-          recipeTitle,
-          ingredients,
-          instructions,
-          imageURL,
-        });
-        
-        console.log('Recipe Shared Successfully- ',response.data);
+    try {
+      
+      const response = await axios.post("http://localhost:5000/api/recipes", {
+        recipeTitle,
+        ingredients,
+        instructions,
+        imageURL,
+      });
 
-        setRecipeTitle('');
-        setIngredients('');
-        setInstructions('');
-        setImageURL('');
+      console.log("Recipe Shared Successfully- ", response.data);
 
-        navigate('/');
-      } catch (error) {
-          console.error('Error sharing recipe ', error);
-      }
+      setRecipeTitle("");
+      setIngredients("");
+      setInstructions("");
+      setImageURL("");
+
+      navigate("/");
+    } catch (error) {
+      console.error("Error sharing recipe ", error);
+    }
   };
 
   return (

@@ -1,0 +1,7 @@
+.contentWrapper {
+    width: 100%;
+    max-width: 1600px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}

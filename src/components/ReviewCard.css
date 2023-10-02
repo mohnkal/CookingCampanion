@@ -1,5 +1,10 @@
 /* Styling for the UserReviews component */
 .user-reviews {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
     text-align: center;
     margin: 20px;
   }
@@ -98,7 +103,7 @@
     }
   
     .review-card {
-      width: 100%; /* Make cards full width on smaller screens */
+      width: 80%; /* Make cards full width on smaller screens */
     }
   }
   

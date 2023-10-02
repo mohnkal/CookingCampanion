@@ -91,7 +91,6 @@ input:hover {
   font-size: 30px;
   display: flex;
   justify-content: space-evenly;
-  margin-right: -114px;
 }
 .nav-btn {
   padding: 0px;
@@ -222,5 +221,17 @@ input:hover {
   }
   .reactHamIcon{
     width: 2em;
+  }
+}
+
+@media (max-width:540px) {
+  .log{
+    font-size: 25px;
+  }
+  input {
+    width: calc(355px - 300px);
+    font-size: 15px;
+    height: 30px;
+
   }
 }

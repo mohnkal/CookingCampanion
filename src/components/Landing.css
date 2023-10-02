@@ -61,7 +61,9 @@
 }
 
 #image{
-  display: flex;
+  width: 76px;
+  height: 35px;
+  background: white;
   
 }
 
@@ -90,6 +92,30 @@
     rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
+.uploadbtn:hover {
+  color: #fff;
+  font-family: Abhaya Libre ExtraBold;
+  font-size: 26.554px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  width: 219.333px;
+  height: 43.212px;
+  flex-shrink: 0;
+  border-radius: 7.857px;
+  background: #ff675f;
+  box-shadow: 0px 2.618905544281006px 3.9283580780029297px 0.6547263860702515px
+    rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: ease-in 0.1s;
+}
+
+.formDetect{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .fybox {
   display: flex;
@@ -117,6 +143,16 @@
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
+}
+.Search-recipe{
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  font-size: xx-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 1;
 }
 .interbox {
   width: 100%;
@@ -267,9 +303,9 @@
     padding: 8px 0;
   }
   .uploadbox{
-    width: 250px;
-  height: 90px;
-  margin-left: 6rem;
+    width: 246px;
+    height: 135px;
+    margin-left: 6rem;
   }
   .ingredientd {
     font-size: 18px;
@@ -322,9 +358,9 @@
 
   }
   .uploadbox{
-    width: 170px;
-  height: 70px;
-  margin-left: 3rem;
+    width: 195px;
+    height: 114px;
+    margin-left: 3rem;
   }
   .ingredientd {
     font-size: 15px;

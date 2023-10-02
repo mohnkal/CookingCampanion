@@ -8,12 +8,13 @@ import { SlBasket } from 'react-icons/sl';
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { UserButton } from "@clerk/clerk-react";
-
+import { Link, useNavigate } from "react-router-dom"; // Import useHistory
 
 export default function Navbar() {
   const { setRecipeList } = useRecipeContext();
 
   const navref = useRef();
+  const navigate = useNavigate();
 
   const showNavbar = () => {
     navref.current.classList.toggle("responsive_nav");
@@ -42,12 +43,19 @@ export default function Navbar() {
     updateTimeoutId(timeout);
   };
  
-  const handlelogin =() =>{
+  const handlelogin = () => {
     console.log()
   }
-  const onLogoClicked = (event) =>{
-    <a href="/"></a>
+
+  const onLogoClicked = (event) => {
+    // Assuming you want to redirect to the home page
+    navigate('/');
   }
+
+  const onMyRecipeClick = () => {
+    navigate('/recipeShared');
+  }
+
   return (
     <>
       <div className="navbar">
@@ -76,14 +84,12 @@ export default function Navbar() {
             </button>
           </div>
           <div className="lower-options" ref={navref}>
-            <div className="myrec">My Recipes</div>
+            <div className="myrec" onClick={onMyRecipeClick}>My Recipes</div>
             <div className="meals">Meals</div>
             <div className="quickbits">Quickbites</div>
             <div className="ingredients">Ingredients</div>
             <button className="nav-btn nav-close-btn" onClick={showNavbar}>
-              {/* <IconContext.Provider value={{ className:'reactHamIcon' }}> */}
               <FaTimes />
-              {/* </IconContext.Provider> */}
             </button>
           </div>
           <button className="nav-btn" onClick={showNavbar}>

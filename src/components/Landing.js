@@ -21,6 +21,7 @@ export default function Landing() {
 
   const [cuisineRecipes, setCuisineRecipes] = useState([]);
   const [showIngredients, setShowIngredients] = useState(null);
+  const [showInstructions, setShowInstructions] = useState(null);
   const [showCompleteRecipe, setShowCompleteRecipe] = useState(null);
 
   const redirectToSharingPage = () => {
@@ -33,6 +34,10 @@ export default function Landing() {
 
   const toggleIngredients = (index) => {
     setShowIngredients(showIngredients === index ? null : index);
+  }
+
+  const toggleInstructions = (index) => {
+    setShowInstructions(showInstructions === index ? null : index);
   }
 
   const onClose = () => {
@@ -61,18 +66,18 @@ export default function Landing() {
   }, []);
   const responsive = {
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 5,
-      slidesToSlide: 1 // optional, default to 1.
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 3000, min: 1153 },
       items: 4,
       slidesToSlide: 1 // optional, default to 1.
     },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
+    tablet: {
+      breakpoint: { max: 1153, min: 980 },
       items: 3,
+      slidesToSlide: 1// optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 980, min: 0 },
+      items: 1,
       slidesToSlide: 1 // optional, default to 1.
     }
   };
@@ -148,18 +153,10 @@ export default function Landing() {
         </span>
         <div className="uploadbox">
           <div className="ingredientd">Ingredient Detection</div>
-          <form onSubmit={handleSubmit} method="POST" enctype="multipart/form-data" >
-            <input type="file" className="uploadbtn" accept="image/*" id="image" name="image" />
-            
-            {/* <!-- Button to trigger file selection --> */}
-            {/* <button id="file-upload-btn">Choose File</button> */}
+          <form className="formDetect" onSubmit={handleSubmit} method="POST" enctype="multipart/form-data" >
+            <input type="file"  accept="image/*" id="image" name="image" />
 
-            {/* <!-- Hidden file input --> */}
-            {/* <input type="file" id="file-input" accept=".jpg, .jpeg, .png, .gif, .pdf" /> */}
-
-            {/* <!-- Display selected file name (optional) --> */}
-            {/* <p id="file-name"></p> */}
-            <input type="submit" value="Submit Value" className="submit" />
+            <input type="submit" value="Submit Value" className="uploadbtn" />
           </form>
         </div>
       </div>
@@ -173,9 +170,10 @@ export default function Landing() {
           ))
         ) : (
           <>
-            <Dishcard recipe={{ label: "No Recipe", ingredientLines: [] }} />
-            <Dishcard recipe={{ label: "No Recipe", ingredientLines: [] }} />
-            <Dishcard recipe={{ label: "No Recipe", ingredientLines: [] }} />
+            <div className="Search-recipe">Search For More Recipes & enjoy Cooking Delicious and Healthy Food</div>
+            {/* <Dishcard/>
+            <Dishcard/>
+            <Dishcard/> */}
           </>
         )}
       </div>
@@ -218,10 +216,10 @@ export default function Landing() {
                   <CompleteRecipeModal
                     recipe={{
                       label: recipe.recipeTitle,
-                      ingredients: recipe.ingredients
+                      instructions: recipe.instructions
                     }}
                     showCompleteRecipeLink={false}
-                    showIngredients={true}
+                    showInstructions={true}
                     onClose={onClose}  // Make sure this line is included
                   />
                 )}

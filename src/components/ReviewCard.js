@@ -7,7 +7,7 @@ const ReviewCard = () => {
   const reviews = [
     {
       id: 1,
-      userName: 'John Doe',
+      userName: 'Pratham Mhavale',
       date: '2023-09-23',
       rating: 5,
       comment: 'This app is fantastic! It helped me achieve my fitness goals.',
@@ -15,7 +15,7 @@ const ReviewCard = () => {
     },
     {
       id: 2,
-      userName: 'Jane Smith',
+      userName: 'Mohnish Kalaimani',
       date: '2023-09-24',
       rating: 4,
       comment: "I'm really impressed with the app's meal planning feature.",
@@ -23,7 +23,7 @@ const ReviewCard = () => {
     },
     {
       id: 3,
-      userName: 'Alice Johnson',
+      userName: 'Rohan More',
       date: '2023-09-25',
       rating: 5,
       comment: 'The recipes are delicious and easy to follow. Highly recommended!',

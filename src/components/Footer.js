@@ -5,10 +5,17 @@ import pinterest from "./pinterest.png";
 import instagram from "./instagram.png";
 import twitter from "./twitter.png";
 import facebook from "./facebook.png";
+import { useNavigate } from "react-router-dom";
+import ContentWrapper from "./contentwrapper/Contentwrapper";
 
 export default function Footer() {
+  const navigate = useNavigate();
+  const onAboutUsClicked = () => {
+    navigate('/About_Us');
+  }
   return (
     <>
+    {/* <ContentWrapper> */}
       <div className="footer-container">
         <div className="footer-address">
           <img src={footer_logo} alt="" />
@@ -17,7 +24,7 @@ export default function Footer() {
           <p>
             <b>Company Information</b>
           </p>
-          <a href="About Us">
+          <a href="About_Us" onClick={onAboutUsClicked}>
             <p id="con1">About Us</p>
           </a>
           <a href="Careers">
@@ -64,42 +71,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      {/* <!-- copyright section --> */}
-      {/* <div className="sc-gKPRtg hNjWRC">
-    <p>Copyright © 2022-23 LEO CLUB OF SIES. All rights reserved.</p>
-  </div> */}
-      {/* <div className="footerbox">
-        <div className="footerlogobox">
-          <img src={logo} alt="logo" id="logo"/>
-        </div>
-        <div className="company">Company Information</div>
-        <div className="companyinfo">
-          <p> About Us </p>
-          <br />
-          <p>Careers </p>
-          <br />
-          <p>Terms & Condition </p>
-          <br />
-          <p>Private Policy </p>
-          <br />
-          <p>Discount Policy </p>
-          <br />
-        </div>
-      <div className="follow">Follow us</div>
-      <div className="followinfo">
-        <p> Join us on Facebook </p>
-        <br />
-        <p>Follow us on Twitter </p>
-        <br />
-        <p>Follow us on Threads </p>
-        <br />
-        <p>See us on Instagram</p>
-        <br />
-        <p>Pin us on Pinterest </p>
-        <br />
-      </div>
-      </div> */}
     </>
   );
 }
